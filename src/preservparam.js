@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", function () {
   (function () {
     console.log("scriptstarted");
-    if (window.location.hostname === "www.biovancia.com") {
+    if (window.location.hostname === "www2.biovancia.com") {
       const urlParams = new URLSearchParams(window.location.search);
 
       // Récupérer le formulaire de recherche par sa classe
@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const filteredElementA = Array.from(elementA).filter((link) => {
         const href = link.getAttribute("href");
         return (
-          href.startsWith("https://www.biovancia.com") ||
+          href.startsWith("https://www2.biovancia.com") ||
           href.startsWith("https://vl.linkinfosante.com") ||
           href.startsWith("/produits/") ||
           href.startsWith("/institut-biovancia/")

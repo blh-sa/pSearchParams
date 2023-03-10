@@ -1,7 +1,13 @@
 window.addEventListener("DOMContentLoaded", function () {
   (function () {
     console.log("scriptstarted");
-    if (window.location.hostname === "www.biovancia.com") {
+/*     const allowedHostnames = [
+      "www2.biovancia.com",
+      "www.cilumine.com",
+      "www.nutrazenith.com",
+    ]; */
+    const allowedHostnames = process.env.ALLOWED_HOSTNAMES.split(",");
+    if (allowedHostnames.includes(window.location.hostname)) {
       const urlParams = new URLSearchParams(window.location.search);
 
       // Récupérer le formulaire de recherche par sa classe
@@ -30,16 +36,24 @@ window.addEventListener("DOMContentLoaded", function () {
       urlParams.delete("s");
 
       const elementA = document.querySelectorAll("a");
+      const allowedLinks = process.env.allowedLinks.split(",");
+/*       const allowedLinks = [
+        "https://www2.biovancia.com",
+        "https://www.cilumine.com/",
+        "https://www.nutrazenith.com",
+        "https://vl.linkinfosante.com",
+        "/produits/",
+        "/institut-biovancia/",
+      ]; */
       // Filtrage des éléments dont l'attribut href contient les domaines recherchés
       const filteredElementA = Array.from(elementA).filter((link) => {
         const href = link.getAttribute("href");
         return (
-          href.startsWith("https://www.biovancia.com") ||
-          href.startsWith("https://vl.linkinfosante.com") ||
-          href.startsWith("/produits/") ||
-          href.startsWith("/institut-biovancia/")
+          href &&
+          allowedLinks.some((allowedLink) => href.startsWith(allowedLink))
         );
       });
+
       // for each filteredLinks check urlParams pour les mettre dans linkParams
       filteredElementA.forEach((ele) => {
         const url = new URL(ele.href); // Crée un nouvel objet URL

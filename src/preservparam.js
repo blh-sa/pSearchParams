@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", function () {
       urlParams.delete("s");
 
       const elementA = document.querySelectorAll("a");
-      const allowedLinks = process.env.allowedLinks.split(",");
+      const allowedLinks = process.env.ALLOWED_LINKS.split(",");
 /*       const allowedLinks = [
         "https://www2.biovancia.com",
         "https://www.cilumine.com/",

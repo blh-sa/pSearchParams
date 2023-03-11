@@ -1,11 +1,11 @@
 window.addEventListener("DOMContentLoaded", function () {
   (function () {
+    const apiKey = process.env.API_KEY;
+const secretKey = process.env.SECRET_KEY;
+console.log(apiKey);
+console.log(secretKey);
+
     console.log("scriptstarted");
-/*     const allowedHostnames = [
-      "www2.biovancia.com",
-      "www.cilumine.com",
-      "www.nutrazenith.com",
-    ]; */
     const allowedHostnames = process.env.ALLOWED_HOSTNAMES.split(",");
     if (allowedHostnames.includes(window.location.hostname)) {
       const urlParams = new URLSearchParams(window.location.search);
@@ -32,19 +32,10 @@ window.addEventListener("DOMContentLoaded", function () {
         // Rediriger vers la nouvelle URL
         window.location.href = newUrl;
       });
-
       urlParams.delete("s");
 
       const elementA = document.querySelectorAll("a");
       const allowedLinks = process.env.ALLOWED_LINKS.split(",");
-/*       const allowedLinks = [
-        "https://www2.biovancia.com",
-        "https://www.cilumine.com/",
-        "https://www.nutrazenith.com",
-        "https://vl.linkinfosante.com",
-        "/produits/",
-        "/institut-biovancia/",
-      ]; */
       // Filtrage des éléments dont l'attribut href contient les domaines recherchés
       const filteredElementA = Array.from(elementA).filter((link) => {
         const href = link.getAttribute("href");

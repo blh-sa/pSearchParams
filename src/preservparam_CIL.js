@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", function () {
       "www.cilumine.com",
       "www.nutrazenith.com",
     ]; */
-    const allowedHostnames = process.env.ALLOWED_HOSTNAMES.split(",");
+    const allowedHostnames = process.env.ALLOWED_HOSTNAMES_CILUMINE.split(",");
     if (allowedHostnames.includes(window.location.hostname)) {
       const urlParams = new URLSearchParams(window.location.search);
 
@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", function () {
       urlParams.delete("s");
 
       const elementA = document.querySelectorAll("a");
-      const allowedLinks = process.env.ALLOWED_LINKS.split(",");
+      const allowedLinks = process.env.ALLOWED_LINKS_CILUMINE.split(",");
 /*       const allowedLinks = [
         "https://www2.biovancia.com",
         "https://www.cilumine.com/",

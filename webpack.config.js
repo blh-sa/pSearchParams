@@ -1,7 +1,7 @@
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/preservparam.js',
   output: {
     filename: 'bundle.js',

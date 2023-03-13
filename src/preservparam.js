@@ -1,10 +1,5 @@
 window.addEventListener("DOMContentLoaded", function () {
   (function () {
-    const apiKey = process.env.API_KEY;
-const secretKey = process.env.SECRET_KEY;
-console.log(apiKey);
-console.log(secretKey);
-
     console.log("scriptstarted");
     const allowedHostnames = process.env.ALLOWED_HOSTNAMES.split(",");
     if (allowedHostnames.includes(window.location.hostname)) {

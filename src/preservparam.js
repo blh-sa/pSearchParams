@@ -1,8 +1,12 @@
+
+
 window.addEventListener("DOMContentLoaded", function () {
   (function () {
+
     console.log("scriptstarted");
-    const allowedHostnames = process.env.ALLOWED_HOSTNAMES.split(",");
-    if (allowedHostnames.includes(window.location.hostname)) {
+    if (hostname.includes(window.location.hostname)) {
+      console.log(hostname);
+      console.log(hostname);
       const urlParams = new URLSearchParams(window.location.search);
 
       // Récupérer le formulaire de recherche par sa classe
@@ -12,9 +16,7 @@ window.addEventListener("DOMContentLoaded", function () {
       searchForm.addEventListener("submit", function (event) {
         // Empêcher le formulaire de se soumettre normalement
         event.preventDefault();
-
         // Mettre à jour la valeur du paramètre "s" avec la valeur saisie dans le formulaire de recherche
-
         urlParams.set(
           "s",
           searchForm.querySelector('input[type="search"]').value
@@ -28,15 +30,15 @@ window.addEventListener("DOMContentLoaded", function () {
         window.location.href = newUrl;
       });
       urlParams.delete("s");
-
       const elementA = document.querySelectorAll("a");
-      const allowedLinks = process.env.ALLOWED_LINKS.split(",");
+      const allowed_links = allowed_links_website.split(",");
+      console.log(allowed_links);
       // Filtrage des éléments dont l'attribut href contient les domaines recherchés
       const filteredElementA = Array.from(elementA).filter((link) => {
         const href = link.getAttribute("href");
         return (
           href &&
-          allowedLinks.some((allowedLink) => href.startsWith(allowedLink))
+          allowed_links.some((allowedLink) => href.startsWith(allowedLink))
         );
       });
 

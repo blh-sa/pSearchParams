@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack"
+    "build:bva": "webpack --config webpack.config.js --env ALLOWED_HOSTNAMES_BVA=www.biovancia.com --env ALLOWED_LINKS_BVA=https://www.biovancia.com,/institut-biovancia/,/produits/,https://vl.linkinfosante.com",
+    "build:cil": "webpack --config webpack.config.js --env ALLOWED_HOSTNAMES_CIL=www.cilumine.com",
+    "build:nzh": "webpack --config webpack.config.js --env ALLOWED_HOSTNAMES_NZH=www.nutrazenith.com"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "dotenv-webpack": "^8.0.1",
-    "webpack": "^5.75.0",
+    "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1"
   }
 }
